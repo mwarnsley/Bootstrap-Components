@@ -7,19 +7,7 @@
 	</head>
 	<body>
 
-		<div id="app">
-			    <div class="container">
-			      <div class="row">
-			      	Main Content
-			      </div>
-
-			      <hr>
-
-			      <footer>
-			        <p>&copy; 2015 MyWebsite, Inc.</p>
-			      </footer>
-			    </div> 
-		</div>
+		<div id="app"></div>
 
 		<script type="text/javascript" src="js/react.js"></script>
 		<script type="text/javascript" src="js/react-dom.js"></script>
@@ -68,12 +56,39 @@
 				}
 			});
 
+			var PageHome = React.createClass({
+				render: function(){
+					return(
+						<div className="container">			
+							<div className="row">
+					      		Main Content
+					      	</div>
+				      	</div>
+					)
+				}
+			});
+
+			var Footer = React.createClass({
+				render: function(){
+					return(
+						<div className="container">
+						<hr/>
+					      <footer>
+					        <p>&copy; 2015 MyWebsite, Inc.</p>
+					      </footer>
+				      </div>
+					)
+				}
+			});
+
 			var App = React.createClass({
 				render: function(){
 					return(
 					<div>
 						<Navbar/>
 						<Jumbotron/>
+						<PageHome/>
+						<Footer/>
 					</div>
 					)
 				}

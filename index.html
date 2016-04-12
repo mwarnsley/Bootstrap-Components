@@ -14,6 +14,14 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
 		<script type="text/babel">
 			var Navbar = React.createClass({
+				propTypes: {
+					brand: React.PropTypes.string.isRequired
+				},
+				getDefaultProps: function(){
+					return{
+						brand: 'My Website'
+					}
+				},
 				render: function(){
 					return(
 						<div>
@@ -26,7 +34,7 @@
 									        <span className="icon-bar"></span>
 									        <span className="icon-bar"></span>
 									      </button>
-									      <a className="navbar-brand" href="#">My Website</a>
+									      <a className="navbar-brand" href="#">{this.props.brand}</a>
 									    </div>
 
 										    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

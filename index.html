@@ -97,7 +97,21 @@
 					return(
 						<div className="container">			
 							<div className="row">
-					      		Main Content
+					      		<h2>Home page content</h2>
+					      		<p>Some content</p>
+					      	</div>
+				      	</div>
+					)
+				}
+			});
+
+			var PageAbout = React.createClass({
+				render: function(){
+					return(
+						<div className="container">			
+							<div className="row">
+					      		<h2 className="page-header">About Us</h2>
+					      		<p>Some Content</p>
 					      	</div>
 				      	</div>
 					)
@@ -144,11 +158,18 @@
 					});
 				},
 				render: function(){
+					if(this.state.page === 'home'){
+						var jumbotron = <Jumbotron />;
+						var page = <PageHome />
+					}else if(this.state.page === 'about'){
+						var jumbotron = '';
+						var page = <PageAbout/>
+					}
 					return(
 					<div>
 						<Navbar homeClick={this.handleHomeClick} aboutClick={this.handleAboutClick} color="dark" page={this.state.page}/>
-						<Jumbotron/>
-						<PageHome/>
+						{jumbotron}
+						{page}
 						<Footer/>
 					</div>
 					)
